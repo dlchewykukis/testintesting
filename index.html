@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b10" />
+  <title>What Gem Are You?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="script.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="What Gem Are You home"><span>W</span>hat Gem Are You?</a>
+    <div class="header-note"><span class="header-dot"></span> A private discovery</div>
+  </header>
+
+  <main id="top">
+    <section class="intro view active" id="intro-view" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span></span> The gemstone observatory <span></span></p>
+        <h1 id="intro-title">There is a<br /><em>gem</em> within you.</h1>
+        <p class="intro-text">Ten instinctive choices will reveal the stone that mirrors your most captivating qualities. Trust what shimmers first.</p>
+        <button class="primary-button" id="begin-button">Begin the discovery <span aria-hidden="true">↗</span></button>
+        <p class="quiet-note">10 questions <i></i> 2 minutes <i></i> your secret is safe</p>
+      </div>
+      <div class="hero-gem" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-crystal crystal-ruby"><div class="crystal-shine"></div></div>
+        <span class="sparkle sparkle-a">✦</span><span class="sparkle sparkle-b">✧</span><span class="sparkle sparkle-c">✦</span>
+        <div class="gem-caption">A rare discovery<br /><span>awaits you</span></div>
+      </div>
+    </section>
+
+    <section class="gem-preview view" id="preview-view" aria-labelledby="preview-title" hidden>
+      <div class="preview-copy">
+        <p class="eyebrow"><span></span> Before the reveal <span></span></p>
+        <h2 id="preview-title">A collection of<br /><em>rare energies.</em></h2>
+        <p>Every stone holds a different kind of magic. Somewhere in this collection is the one that echoes your instincts, your inner weather, and the way you move through the world.</p>
+      </div>
+      <div class="collection" aria-hidden="true">
+        <div class="collection-glow"></div>
+        <div class="mini-gem mini-amethyst"></div><div class="mini-gem mini-emerald"></div><div class="mini-gem mini-sapphire"></div>
+        <div class="preview-crystal"><div class="crystal-shine"></div></div>
+        <div class="mini-gem mini-citrine"></div><div class="mini-gem mini-rose"></div><div class="mini-gem mini-obsidian"></div>
+        <span class="sparkle preview-sparkle-one">✦</span><span class="sparkle preview-sparkle-two">✧</span>
+      </div>
+      <div class="preview-action"><p>Let your instincts choose the stone</p><button class="primary-button" id="preview-button">Discover your personal gem <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="quiz view" id="quiz-view" aria-labelledby="question-title" hidden>
+      <div class="quiz-top"><p class="eyebrow">Question <span id="question-number">01</span> <b>/ 10</b></p><div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div></div>
+      <div class="question-wrap">
+        <p class="question-kicker" id="question-kicker">A little window into your world</p>
+        <h2 id="question-title"></h2>
+        <div class="answers" id="answers"></div>
+        <p class="answer-hint">Choose the answer that feels most like you <span>✦</span></p>
+      </div>
+    </section>
+
+    <section class="result view" id="result-view" aria-labelledby="result-title" hidden>
+      <div class="result-heading"><p class="eyebrow">Your private gemstone report</p><h2 id="result-title">YOUR GEM IS</h2><p class="result-date">A discovery made just for you <span>✦</span></p></div>
+      <div class="report-card" id="report-card">
+        <div class="report-visual"><p class="card-label">WHAT GEM ARE YOU?</p><div class="result-crystal" id="result-crystal"><div class="crystal-shine"></div></div><p class="gem-name" id="gem-name"></p><p class="gem-title" id="gem-title"></p><div class="card-rule"></div><p class="energy" id="gem-energy"></p></div>
+        <div class="report-info">
+          <div class="info-section"><p class="info-label">Why this gem fits you</p><p class="personality-copy" id="gem-description"></p></div>
+          <div class="info-section"><p class="info-label">Your personality</p><div class="traits" id="gem-traits"></div></div>
+          <div class="info-section"><p class="info-label">Best MBTI matches</p><p class="mbti" id="gem-mbti"></p></div>
+          <div class="matches"><div><p class="match-label">Best match</p><strong id="best-match"></strong><small id="best-copy"></small></div><div><p class="match-label muted">Bad match</p><strong id="bad-match"></strong><small id="bad-copy"></small></div></div>
+          <div class="ratings"><p class="info-label">Your aura, at a glance</p><div id="rating-list"></div></div>
+        </div>
+        <div class="report-quote" id="gem-quote"></div>
+      </div>
+      <div class="result-actions"><button class="secondary-button" id="restart-button">↻ Discover again</button><button class="primary-button" id="share-button">Share your gem <span aria-hidden="true">↗</span></button></div>
+    </section>
+  </main>
+  <footer><span>✦</span> Crafted for the beautifully uncommon <span>✦</span><small class="property-mark">Dulce Luna</small></footer>
+  <script src="script.js"></script>
+  <script>
+    const originalRenderResult = renderResult;
+    renderResult = () => {
+      originalRenderResult();
+      const artworkFiles = {
+        RUBY: 'ruby.png', AMETHYST: 'amethyst.png', AQUAMARINE: 'aquamarine.png',
+        SAPPHIRE: 'sapphire.png', EMERALD: 'emerald.png', OPAL: 'opal.png',
+        'ROSE QUARTZ': 'rosequartz.png', CITRINE: 'citrine.png', OBSIDIAN: 'obsidian.png', GARNET: 'garnet.png'
+      };
+      const crystal = document.getElementById('result-crystal');
+      crystal.classList.add('artwork');
+      crystal.style.background = `url("pictures/${artworkFiles[document.getElementById('gem-name').textContent]}") center / contain no-repeat`;
+    };
+  </script>
+</body>
+</html>
